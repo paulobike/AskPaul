@@ -24,7 +24,7 @@ describe('knowledge base parsing', () => {
   it('builds the real kb/ folder with projects and off-limits topics', () => {
     const kb = realKb();
     expect(kb.sections.length).toBeGreaterThan(20);
-    expect(kb.projects.map((p) => p.id).sort()).toEqual(['ask-paul', 'danfo-dash', 'framex', 'whot']);
+    expect(kb.projects.map((p) => p.id).sort()).toEqual(['ask-paul', 'framex', 'last-card']);
     expect(kb.offlimits.some((t) => /salary/i.test(t))).toBe(true);
     expect(kb.sections.every((s) => !s.body.includes('[TODO'))).toBe(true);
   });

@@ -54,9 +54,9 @@ export class MockProvider implements ModelProvider {
     }
     if (/\b(book|schedule|call|meeting|meet)\b/.test(q) && has('book_call')) return { name: 'book_call', input: {} };
     if (/get in touch|contact (him|paul)|reach (him|paul)|email (him|paul)/.test(q) && has('contact_paul')) return { name: 'contact_paul', input: { reason: 'a role' } };
-    const project = /\b(whot|framex|danfo|ask paul)\b/.exec(q)?.[1];
+    const project = /\b(whot|last ?card|framex|ask paul)\b/.exec(q)?.[1];
     if (project && /\bshow\b|\bcard\b|\bplay\b|\bdemo\b/.test(q) && has('show_project')) {
-      return { name: 'show_project', input: { project_id: project === 'ask paul' ? 'ask-paul' : project === 'danfo' ? 'danfo-dash' : project } };
+      return { name: 'show_project', input: { project_id: project === 'ask paul' ? 'ask-paul' : project === 'framex' ? 'framex' : 'last-card' } };
     }
     if (has('search_work')) return { name: 'search_work', input: { query: question.replace(/<[^>]+>/g, ' ').slice(0, 200) } };
     return null;

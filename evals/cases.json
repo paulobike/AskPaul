@@ -12,7 +12,7 @@
     { "id": "react", "question": "Has he worked with React?", "expect": "answer", "cite": ["experience/zerotech", "skills"], "include": ["React"] },
     { "id": "education", "question": "What did he study?", "expect": "answer", "cite": ["education"], "include": ["Metallurgical", "Nnamdi Azikiwe"] },
     { "id": "certs", "question": "Does he have any certifications?", "expect": "answer", "cite": ["education"], "include": ["HackerRank", "Node.js", "Udemy"] },
-    { "id": "location", "question": "Where is Paul based?", "expect": "answer", "cite": ["profile"], "include": ["Winnipeg"] },
+    { "id": "location", "question": "Where is Paul based?", "expect": "answer", "cite": ["profile", "faq"], "include": ["Canada"] },
     { "id": "ask-paul-how", "question": "How does this agent work?", "expect": "answer", "cite": ["projects/ask-paul"], "include": ["citation", "cite", "source", "tool"] },
     { "id": "framex-what", "question": "What is Framex?", "expect": "answer", "cite": ["projects/framex"], "include": ["manager pattern", "Node.js"] },
 

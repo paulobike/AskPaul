@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ask Paul — widget playground</title>
+    <style>
+      body { margin: 0; background: #0d1218; color: #e8edf3; font: 17px/1.6 system-ui, sans-serif; }
+      main { max-width: 720px; margin: 0 auto; padding: 48px 24px 160px; }
+      h1 { font: 400 40px/1.1 Georgia, serif; }
+      p { color: #b4c0ce; }
+      code { background: #151c25; padding: 2px 6px; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Random Web Page</h1>
+      <p>A stand-in host page. The launcher in the corner is the real widget, talking to the API at <code>http://localhost:8787</code>.</p>
+      <p>Run <code>npm run dev:api</code> in another terminal. Without an API key it uses the mock model.</p>
+    </main>
+    <ask-paul api-url="http://localhost:8787" page-context="Vennote case study"></ask-paul>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>

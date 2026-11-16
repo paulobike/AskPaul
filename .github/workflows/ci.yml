@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run kb:build
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  # Answer quality. Runs only when a model key is configured as a repository secret.
+  eval:
+    needs: check
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run evals
+        if: env.ANTHROPIC_API_KEY != '' || env.OPENAI_API_KEY != ''
+        run: npm run eval
+      - name: Skip (no model key)
+        if: env.ANTHROPIC_API_KEY == '' && env.OPENAI_API_KEY == ''
+        run: echo "No model key set; skipping evals. Add ANTHROPIC_API_KEY or OPENAI_API_KEY as a repository secret."

@@ -1,0 +1,16 @@
+# Netlify response headers for the widget files (copied into dist/ by Vite).
+
+# Browsers apply CORS to <script type="module">, so sites embedding the widget
+# need this header. "*" is safe: these are public static scripts, and the API
+# enforces its own allowed origins (ALLOWED_ORIGINS). To lock it to one site,
+# use e.g. https://paulobike.com instead (only one origin is allowed per header).
+/*
+  Access-Control-Allow-Origin: *
+
+# Same file name on every build: keep the cache short so updates reach visitors.
+/ask-paul.js
+  Cache-Control: public, max-age=300
+
+# Hashed chat chunks never change: cache for a year.
+/ask-paul-*
+  Cache-Control: public, max-age=31536000, immutable

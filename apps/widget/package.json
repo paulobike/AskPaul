@@ -1,0 +1,24 @@
+{
+  "name": "@ask-paul/widget",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@ask-paul/protocol": "*",
+    "preact": "^10.29.8"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "vite": "^8.0.0"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./app": "./src/app.tsx",
+    "./styles.css": "./src/styles.css",
+    "./settings": "./src/lib/settings.ts"
+  }
+}

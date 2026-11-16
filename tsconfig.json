@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": { "types": ["node"] },
+  "include": ["bot.config.ts", "packages/*/src", "apps/api/src", "apps/widget/src", "apps/site/src", "evals", "scripts", "tests"]
+}

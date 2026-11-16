@@ -1,0 +1,19 @@
+{
+  "name": "@ask-paul/site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@ask-paul/widget": "*",
+    "preact": "^10.29.8",
+    "@ask-paul/protocol": "*"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "vite": "^8.0.0"
+  }
+}

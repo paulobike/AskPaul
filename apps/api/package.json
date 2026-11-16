@@ -1,0 +1,20 @@
+{
+  "name": "@ask-paul/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/node.ts",
+    "start": "node dist/node.js",
+    "build": "esbuild src/node.ts --bundle --platform=node --format=esm --target=node20 --minify --outfile=dist/node.js --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\" && esbuild src/worker.ts --bundle --platform=neutral --format=esm --target=es2022 --main-fields=module,main --conditions=worker,browser --external:node:* --minify --outfile=dist/worker.js"
+  },
+  "dependencies": {
+    "@ask-paul/agent-core": "*",
+    "@ask-paul/protocol": "*",
+    "@hono/node-server": "^2.1.6",
+    "hono": "^4.13.17"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.0"
+  }
+}

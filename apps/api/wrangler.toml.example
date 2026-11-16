@@ -1,0 +1,20 @@
+# Cloudflare Workers config (one hosting option). Copy to wrangler.toml.
+# Deploy from apps/api:  npx wrangler deploy
+name = "ask-paul-api"
+main = "src/worker.ts"
+compatibility_date = "2026-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ALLOWED_ORIGINS = "https://paulobike.dev,https://ask.paulobike.dev"
+LOG_QUESTIONS = "1"
+
+# Shared daily-limit counter across Worker instances.
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "<create with: npx wrangler kv namespace create RATE_LIMIT>"
+
+# Secrets (not in this file):
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put OPENAI_API_KEY
+#   npx wrangler secret put RATE_LIMIT_SALT

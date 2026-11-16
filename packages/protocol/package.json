@@ -1,0 +1,13 @@
+{
+  "name": "@ask-paul/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./lite": "./src/lite.ts"
+  },
+  "dependencies": {
+    "zod": "^4.3.6"
+  }
+}

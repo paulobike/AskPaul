@@ -1,0 +1,29 @@
+{
+  "name": "ask-paul",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "kb:build": "tsx scripts/build-kb.ts",
+    "dev:api": "npm run kb:build && npm run dev -w @ask-paul/api",
+    "dev:widget": "npm run dev -w @ask-paul/widget",
+    "dev:site": "npm run dev -w @ask-paul/site",
+    "build": "npm run kb:build && npm run build -w @ask-paul/widget && npm run build -w @ask-paul/site && npm run build -w @ask-paul/api",
+    "typecheck": "npm run kb:build && tsc -p tsconfig.json",
+    "test": "npm run kb:build && vitest run",
+    "eval": "npm run kb:build && tsx evals/run.ts",
+    "kb:check": "tsx scripts/build-kb.ts --strict"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
